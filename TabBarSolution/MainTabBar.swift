@@ -18,6 +18,10 @@ class MainTabBar: UITabBar {
     }
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if self.isHidden {
+            return super.hitTest(point, with: event)
+        }
+        
         let from = point
         let to = middleButton.center
 
