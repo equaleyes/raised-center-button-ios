@@ -27,6 +27,11 @@ class MainTabBar: UITabBar {
 
         return sqrt((from.x - to.x) * (from.x - to.x) + (from.y - to.y) * (from.y - to.y)) <= 39 ? middleButton : super.hitTest(point, with: event)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        middleButton.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: 0)
+    }
 
     func setupMiddleButton() {
         middleButton.frame.size = CGSize(width: 70, height: 70)
